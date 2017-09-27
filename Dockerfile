@@ -1,4 +1,4 @@
-FROM circleci/api-26-alpha:latest
+FROM circleci/android:api-26-alpha
 
 ENV ANDROID_NDK_HOME /opt/android-ndk
 ENV ANDROID_NDK_VERSION r15c
