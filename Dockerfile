@@ -1,13 +1,14 @@
 FROM circleci/android:api-26-alpha
 
-ENV ANDROID_NDK_HOME ~/android-ndk
 ENV ANDROID_NDK_VERSION r14b
+ENV ANDROID_NDK_HOME ~/android-ndk-${ANDROID_NDK_VERSION}
 
 # ------------------------------------------------------
 # --- Android NDK
 
 # download
-RUN mkdir ~/android-ndk-tmp && \
+RUN ls ~ && \
+    mkdir ~/android-ndk-tmp && \
     mkdir ${ANDROID_NDK_HOME} && \
     cd ~/android-ndk-tmp && \
     wget -q https://dl.google.com/android/repository/android-ndk-${ANDROID_NDK_VERSION}-linux-x86_64.zip && \
