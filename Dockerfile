@@ -8,13 +8,13 @@ ENV ANDROID_NDK_VERSION r14b
 
 # download
 RUN mkdir ~/android-ndk-tmp && \
+    mkdir ${ANDROID_NDK_HOME} && \
     cd ~/android-ndk-tmp && \
     wget -q https://dl.google.com/android/repository/android-ndk-${ANDROID_NDK_VERSION}-linux-x86_64.zip && \
 # uncompress
     unzip -q android-ndk-${ANDROID_NDK_VERSION}-linux-x86_64.zip && \
     ls . && \
 # move to its final location
-    mkdir ${ANDROID_NDK_HOME} && \
     mv android-ndk-${ANDROID_NDK_VERSION} ${ANDROID_NDK_HOME} && \
 # remove temp dir
     cd ${ANDROID_NDK_HOME} && \
