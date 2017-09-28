@@ -1,7 +1,6 @@
 FROM circleci/android:api-26-alpha
 
-ENV ANDROID_NDK_PATH android-ndk
-ENV ANDROID_NDK_HOME ~/${ANDROID_NDK_PATH}
+ENV ANDROID_NDK_HOME ~/android-ndk
 ENV ANDROID_NDK_VERSION r14b
 
 # ------------------------------------------------------
@@ -15,7 +14,8 @@ RUN mkdir ~/android-ndk-tmp && \
     unzip -q android-ndk-${ANDROID_NDK_VERSION}-linux-x86_64.zip && \
     ls . && \
 # move to its final location
-    mv android-ndk-${ANDROID_NDK_VERSION} ${ANDROID_NDK_PATH} && \
+    mkdir ${ANDROID_NDK_HOME}
+    mv android-ndk-${ANDROID_NDK_VERSION} ${ANDROID_NDK_HOME} && \
 # remove temp dir
     cd ${ANDROID_NDK_HOME} && \
     rm -rf ~/android-ndk-tmp
